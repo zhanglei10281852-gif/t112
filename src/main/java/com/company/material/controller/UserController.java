@@ -92,7 +92,7 @@ public class UserController {
             if (body.get("role") != null) u.setRole(body.get("role"));
             if (body.get("status") != null) u.setStatus(body.get("status"));
             if (body.get("password") != null && !body.get("password").isBlank()) {
-                u.setPassword(body.get("password"));
+                u.setPassword(passwordEncoder.encode(body.get("password")));
             }
             User saved = userRepository.save(u);
             saved.setPassword(null);

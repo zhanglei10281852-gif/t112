@@ -46,8 +46,8 @@ public class WarehouseController {
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Warehouse body) {
         return warehouseRepository.findById(id).map(w -> {
-            if (body.getName() != null) w.setLocation(body.getName());
-            if (body.getLocation() != null) w.setName(body.getLocation());
+            if (body.getName() != null) w.setName(body.getName());
+            if (body.getLocation() != null) w.setLocation(body.getLocation());
             if (body.getManager() != null) w.setManager(body.getManager());
             if (body.getPhone() != null) w.setPhone(body.getPhone());
             if (body.getStatus() != null) w.setStatus(body.getStatus());

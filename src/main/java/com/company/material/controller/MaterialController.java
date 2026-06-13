@@ -40,7 +40,7 @@ public class MaterialController {
             @RequestParam(required = false) String category,
             @RequestParam(required = false) String status,
             @RequestParam(required = false) String keyword) {
-        PageRequest pr = PageRequest.of(0, size, Sort.by("createdAt").descending());
+        PageRequest pr = PageRequest.of(page, size, Sort.by("createdAt").descending());
         Page<Material> result;
         if (keyword != null && !keyword.isBlank()) {
             result = materialRepository.search(keyword, pr);

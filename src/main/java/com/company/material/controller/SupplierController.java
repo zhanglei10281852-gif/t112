@@ -24,7 +24,7 @@ public class SupplierController {
         if (supplier.getSupplierCode() == null || supplier.getName() == null) {
             return ResponseEntity.badRequest().body(Map.of("error", "供应商编码和名称为必填"));
         }
-        if (supplierRepository.existsBySupplierCode(supplier.getName())) {
+        if (supplierRepository.existsBySupplierCode(supplier.getSupplierCode())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("error", "供应商编码已存在"));
         }
         supplier.setId(null);
